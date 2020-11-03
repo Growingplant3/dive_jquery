@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery入門</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>項目1</th>
+        <th>項目2</th>
+        <th>項目3</th>
+      </tr>
+      <tr>
+        <td>リスト</td>
+        <td>リスト</td>
+        <td>リスト</td>
+      </tr>
+      <tr>
+        <td>リスト</td>
+        <td>リスト</td>
+        <td>リスト</td>
+      </tr>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+      // $(function() {
+      //   $('table').find('td').on('click', function(){
+      //     $(this).text('DONE！')
+      //   });
+      // });
+      $(function() {
+        $('table').find('td').data('count', 0)
+        .on('click', function(){
+          let $this = $(this);
+          let number = $this.data('count') + 1;  //`data`の値を+1して変数numberに格納
+          $this.data('count', number) //`data`の値を変数numberの値に設定
+          .text(number); //改行を入れて追記
+        });
+      });
+    </script>
+  </body>
+</html>
